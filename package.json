@@ -1,0 +1,14 @@
+{
+  "name": "arka-pos",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun --watch run src/index.ts"
+  },
+  "dependencies": {
+    "hono": "^4.8.0",
+    "postgres": "^3.4.7"
+  }
+}
