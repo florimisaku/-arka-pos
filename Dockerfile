@@ -1,5 +1,8 @@
-FROM node:20-alpine
+FROM oven/bun:1
 WORKDIR /app
-COPY index.html .
+COPY package.json ./
+RUN bun install
+COPY src ./src
+ENV NODE_ENV=production
 EXPOSE 3000
-CMD ["node", "-e", "const http=require('http'),fs=require('fs');http.createServer((req,res)=>{res.setHeader('Content-Type','text/html; charset=utf-8');fs.createReadStream('index.html').pipe(res)}).listen(process.env.PORT||3000,'0.0.0.0')"]
+CMD ["bun", "run", "src/index.ts"]
